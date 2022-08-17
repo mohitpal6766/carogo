@@ -32,4 +32,8 @@ app.post("/register", (req, res) => {
   //   res.render("register", { logged: true });
 });
 
+app.get("/logout", async (req, res) => {
+  logged = false;
+  res.redirect("/");
+});
 module.exports = app;
