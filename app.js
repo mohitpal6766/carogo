@@ -25,9 +25,13 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 app.post("/register", (req, res) => {
-  const newUser = Users.create(req.body);
-  logged = true;
-  res.redirect("/");
+  try {
+    const newUser = Users.create(req.body);
+    logged = true;
+    res.redirect("/");
+  } catch (error) {
+    res.send("user already exist");
+  }
 
   //   res.render("register", { logged: true });
 });
