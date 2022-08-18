@@ -15,6 +15,9 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "static")));
 
 app.get("/", (req, res) => {
+  Users.deleteMany({}, function (err) {
+    console.log("success");
+  });
   res.render("home", { logged: logged });
 });
 app.get("/contact", (req, res) => {
